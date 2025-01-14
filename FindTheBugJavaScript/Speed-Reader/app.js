@@ -12,8 +12,8 @@ document.addEventListener("click", clickHandler);
 function clickHandler(event) {
   //passing the event object
   startReader(event);
-  stopReader(event);
-  // pauseReader(event);
+  pauseReader(event);
+  //stopReader(event);
 }
 
 //Start the Reader
@@ -57,17 +57,19 @@ function end() {
 
 function run() {
   //run the reader
-  interval = setInterval(function () {
-    // If there are no more words, stop
-    if (!words[current]) {
-      end();
-      return;
-    }
+  if (interval == undefined) {
+    interval = setInterval(function () {
+      // If there are no more words, stop
+      if (!words[current]) {
+        end();
+        return;
+      }
 
-    //display the words to ui
-    readerElem.textContent = words[current];
+      //display the words to ui
+      readerElem.textContent = words[current];
 
-    //go to next word
-    current++;
-  }, speed);
+      //go to next word
+      current++;
+    }, speed);
+  }
 }
