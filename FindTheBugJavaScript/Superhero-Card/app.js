@@ -6,7 +6,7 @@ const publisherEl = document.querySelector(".publisher");
 const intelligenceEl = document.getElementById("intelligence");
 const strengthEl = document.getElementById("strength");
 const speedEl = document.getElementById("speed");
-const durabilityEl = document.getElementById("durability");
+const durableEl = document.getElementById("durability");
 const powerEl = document.getElementById("power");
 const combatEl = document.getElementById("combat");
 
@@ -27,18 +27,15 @@ function getInfo(apiURL) {
     })
     .then((data) => {
       nameEl.innerText = data.name;
-
       imgEl.src = data.images.sm;
       imgEl.setAttribute("alt", data.name);
-
       fullNameEl.innerText = data.biography.fullName;
-
       publisherEl.innerText = data.biography.publisher;
 
       intelligenceEl.innerText = data.powerstats.intelligence;
       strengthEl.innerText = data.powerstats.strength;
       speedEl.innerText = data.powerstats.speed;
-      durabilityEl.innerText = data.powerstats.speed;
+      durableEl.innerText = data.powerstats.speed;
       powerEl.innerText = data.powerstats.power;
       combatEl.innerText = data.powerstats.combat;
     })
